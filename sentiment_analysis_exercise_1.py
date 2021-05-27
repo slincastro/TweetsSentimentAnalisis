@@ -54,12 +54,12 @@ sentiment_df = pd.DataFrame(sentiment_data, columns = ['Tweet','Sentimiento Asoc
 
 html = sentiment_df.sort_values('Sentimiento Asociado', ascending=False)
 
-generate_html(html, "index.html")
+generate_html(html, "sentimiento_por_tweet.html")
 
 #Creando el dataframe para ver el agrupamiento por valor de sentimiento asociado
 tweet_group = sentiment_df.groupby('Sentimiento Asociado').size().reset_index(name='Cantidad')
 
-generate_html(tweet_group,"group.html")
+generate_html(tweet_group,"Agrupacion_sentimientos_por_tweet.html")
 
 #Generando el grafico de barras para el sentimiento asociado
 fig = tweet_group.plot.bar(x="Sentimiento Asociado", y="Cantidad")
